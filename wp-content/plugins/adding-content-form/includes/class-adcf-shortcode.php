@@ -9,7 +9,7 @@ class ADCF_Shortcode {
 	public function shortcode_form() {
 		ob_start();?>
             <h3>Добавить новую недвижимость</h3>
-        <form action="POST" id="property-form">
+        <form action="POST" id="property-form" class="property-form">
             <?php
                 foreach ($this->fields() as $key => $value):
                     $this->fields_form( $key, $value);
@@ -44,15 +44,27 @@ class ADCF_Shortcode {
                 'description' => 'Это обязательное поле. Выберите город',
             ],
             'property_descriptions' => [
-                'type'              => 'textarea',
+                'type'              => 'wysiwyg_editor',
                 'label'             => 'Описание недвижимости',
                 'required'          => true,
+                'custom_attributes' => [
+	                'wpautop'          => 1,
+	                'media_buttons'    => 0,
+	                'textarea_rows'    => 3,
+	                'tabindex'         => 0,
+	                'editor_css'       => '<style></style>',
+	                'editor_class'     => 'form-field',
+	                'teeny'            => 1,
+	                'dfw'              => 0,
+	                'tinymce'          => 1,
+	                'quicktags'        => 0,
+	                'drag_drop_upload' => 0,
+                ],
                 'description' => 'Это обязательное поле. Укажите описание недвижимости',
             ],
             'property_thumbnail' => [
-                'type'              => 'text',
+                'type'              => 'file',
                 'label'             => 'Изображение недвижимости',
-                'description' => 'Выберите изображение недвижимости',
             ],
             'property_square' => [
 	            'type'              => 'text',

@@ -21,7 +21,7 @@ class ADCF_Core {
 		wp_register_style('adcf-styles', ADCF_URI . 'assets/adcf-style.css', [], filemtime(ADCF_DIR . 'assets/adcf-style.css'));
 		wp_enqueue_style( 'adcf-styles' );
 
-		wp_register_script('adcf-script', ADCF_URI . 'assets/adcf-script.js', ['jquery'], filemtime(ADCF_DIR . 'assets/adcf-script.js'));
+		wp_register_script('adcf-script', ADCF_URI . 'assets/adcf-script.js', ['jquery'], filemtime(ADCF_DIR . 'assets/adcf-script.js'), true);
 		wp_enqueue_script( 'adcf-script' );
 	}
 

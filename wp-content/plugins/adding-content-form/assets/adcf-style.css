@@ -1,0 +1,49 @@
+.property-form input[type="text"],
+.property-form input[type="email"],
+.property-form input[type="url"],
+.property-form input[type="password"],
+.property-form input[type="search"],
+.property-form input[type="number"],
+.property-form input[type="tel"],
+.property-form input[type="range"],
+.property-form input[type="date"],
+.property-form input[type="month"],
+.property-form input[type="week"],
+.property-form input[type="time"],
+.property-form input[type="datetime"],
+.property-form input[type="datetime-local"],
+.property-form input[type="color"],
+.property-form textarea {
+    width: 100%;
+}
+
+.property-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.property-form p {
+    display: flex;
+    flex-direction: column;
+}
+
+.property-form .required {
+    color: tomato;
+}
+
+.property-form .optional {
+    visibility: hidden;
+}
+
+.property-form .description {
+    font-size: 14px;
+    font-style: italic;
+    color: #4e4e4e;
+    line-height: 1;
+}
+
+.property-form .error {
+    font-size: 12px;
+    color: red;
+    font-style: italic;
+}
