@@ -27,51 +27,61 @@ class ADCF_Shortcode {
                 'type'              => 'text',
                 'label'             => 'Название недвижимости',
                 'required'          => true,
+                'description' => 'Это обязательное поле. Укажите название недвижимости',
             ],
             'property_type' => [
                     'type' => 'select',
                     'label' => 'Тип недвижимости',
-                    'options' => [],
+                    'options' => $this->get_field_terms('property_type'),
                     'required'          => true,
+                    'description' => 'Это обязательное поле. Выберите тип недвижимости',
             ],
             'property_city' => [
                 'type' => 'select',
                 'label' => 'Город',
-                'options' => [],
+                'options' => $this->get_field_terms('property_city'),
                 'required'          => true,
+                'description' => 'Это обязательное поле. Выберите город',
             ],
             'property_descriptions' => [
                 'type'              => 'textarea',
                 'label'             => 'Описание недвижимости',
                 'required'          => true,
+                'description' => 'Это обязательное поле. Укажите описание недвижимости',
             ],
             'property_thumbnail' => [
                 'type'              => 'text',
                 'label'             => 'Изображение недвижимости',
+                'description' => 'Выберите изображение недвижимости',
             ],
             'property_square' => [
 	            'type'              => 'text',
 	            'label'             => 'Площадь недвижимости, м2',
 	            'required'          => true,
+	            'description' => 'Это обязательное поле. Укажите площадь недвижимости',
             ],
             'property_price' => [
                 'type'              => 'text',
                 'label'             => 'Стоимость недвижимости, руб',
                 'required'          => true,
+                'description' => 'Это обязательное поле. Укажите стоимость недвижимости',
             ],
             'property_address' => [
                 'type'              => 'text',
                 'label'             => 'Адрес недвижимости',
                 'required'          => true,
+                'description' => 'Это обязательное поле. Укажите адрес недвижимости',
             ],
             'property_living_area' => [
                 'type'              => 'text',
                 'label'             => 'Жилая лощадь недвижимости, м2',
                 'required'          => true,
+                'description' => 'Это обязательное поле. Укажите жилую площадь недвижимости',
             ],
             'property_floor' => [
                 'type'              => 'text',
                 'label'             => 'Этаж',
+                'description' => 'Введите этаж',
             ],
 
         ];
@@ -332,5 +342,25 @@ class ADCF_Shortcode {
 		}
 
 		return $field;
+	}
+
+	public function get_field_terms($tax) {
+
+		$terms = get_terms(
+			[
+				'taxonomy'   => [ $tax ],
+				'orderby'    => 'id',
+				'order'      => 'ASC',
+				'hide_empty' => false,
+			]
+		);
+
+		$field_terms = [];
+
+		foreach ( $terms as $term ) {
+			$field_terms[ $term->slug ] = $term->name;
+		}
+
+		return $field_terms;
 	}
 }
