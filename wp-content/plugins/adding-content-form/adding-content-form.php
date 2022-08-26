@@ -30,7 +30,14 @@ Text Domain: adding-content-form
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
 define('ADCF_DIR', plugin_dir_path( __FILE__));
 define('ADCF_URI', plugin_dir_url( __FILE__));
 
-error_log( print_r( ))
+require_once ADCF_DIR . 'includes/class-adcf-core.php';
+
+function adcf() {
+	return ADCF_Core::instance();
+}
+
+adcf();
