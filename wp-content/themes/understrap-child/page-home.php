@@ -23,10 +23,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 				<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
 
 				<main class="site-main" id="main">
-                    <?php
-		            the_content();
-                    ?>
-
                     <section class="section-property">
                         <div class="row">
                             <div class="col-12">
@@ -37,7 +33,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 		                    <?php
 		                    $args = array(
 			                    'post_type' => 'property',
-			                    'order' => 'ASC',
+			                    'order' => 'DESC',
 			                    'posts_per_page' => 3,
 		                    );
 		                    $properties = new WP_Query($args);
@@ -83,7 +79,13 @@ $container = get_theme_mod( 'understrap_container_type' );
                         </div>
                     </section>
 
-
+                    <section class="section-form">
+                        <div class="row">
+							<?php
+                            the_content();
+                            ?>
+                        </div>
+                    </section>
 
 				</main><!-- #main -->
 

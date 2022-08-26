@@ -50,7 +50,6 @@ class ADCF_Shortcode {
             'property_descriptions' => [
                 'type'              => 'wysiwyg_editor',
                 'label'             => 'Описание недвижимости',
-                'required'          => true,
                 'custom_attributes' => [
 	                'wpautop'          => 1,
 	                'media_buttons'    => 0,
