@@ -27,24 +27,10 @@ Text Domain: adding-content-form
 */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
-
-class TtAddingContentForm
-{
-	//method
-
-	public function __construct() {
-		add_shortcode('textshortcode', 'wpschool_text_shortcode');
-	}
-
-
-	function wpschool_text_shortcode() {
-		return 'Привет, WPSchool!';
-	}
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
+define('ADCF_DIR', plugin_dir_path( __FILE__));
+define('ADCF_URI', plugin_dir_url( __FILE__));
 
-if (class_exists('TtAddingContentForm')) {
-	new TtAddingContentForm();
-}
-
-
+error_log( print_r( ))
