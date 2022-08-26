@@ -7,6 +7,9 @@ class ADCF_Shortcode {
 	}
 
 	public function shortcode_form() {
+		wp_enqueue_script( 'adcf-script' );
+		wp_enqueue_script( 'adcf-ajax' );
+
 		ob_start();?>
             <h3>Добавить новую недвижимость</h3>
         <form action="POST" id="property-form" class="property-form">
